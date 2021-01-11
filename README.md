@@ -29,7 +29,7 @@ Virtual environment variables for .env.dev file:
 ```
 DATABASE_ENGINE=django.db.backends.postgresql
 
-DATABASE_HOST=localhost (Your data)
+DATABASE_HOST=db or localhost(Your data) (use db if you run through docker)
 
 DATABASE_NAME=testdb (Your data)
 
