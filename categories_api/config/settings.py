@@ -34,6 +34,7 @@ INSTALLED_APPS = [
 
     'categories',
 
+    'drf_yasg',
     'rest_framework',
 ]
 
