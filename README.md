@@ -95,6 +95,26 @@ sudo docker systems pruno
 
 ### Review
 
+Successful post request:
+
+![изображение](https://user-images.githubusercontent.com/37241257/104203088-ca13d380-543c-11eb-8955-bcb3f1d1123c.png)
+
+Getting a category with id 2:
+
+![изображение](https://user-images.githubusercontent.com/37241257/104203246-f7f91800-543c-11eb-832c-37b1096c4c45.png)
+
+Getting a category with id 8:
+
+![изображение](https://user-images.githubusercontent.com/37241257/104203344-1101c900-543d-11eb-8b33-0719ee44d13a.png)
+
+Database records:
+
+![изображение](https://user-images.githubusercontent.com/37241257/104203508-46a6b200-543d-11eb-9f33-4b2ec945a0fd.png)
+
+Tests:
+
+![изображение](https://user-images.githubusercontent.com/37241257/104203639-6ccc5200-543d-11eb-8653-0ce71c730201.png)
+
 
 
 
