@@ -9,7 +9,7 @@
 ```bash
 git clone https://github.com/spanickroon/Categories-API.git
 
-cd MnemosCategoriesyne
+cd Categories-API
 
 touch .env.dev
 
@@ -44,6 +44,8 @@ DATABASE_USER=test (Your data)
 SECRET_KEY= (Your data)
 
 ALLOWED_HOSTS=localhost 127.0.0.1 0.0.0.0 [::1] (Your data)
+
+DATABASE=postgres
 ```
 
 ### Docs
