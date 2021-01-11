@@ -1,0 +1,24 @@
+version: '3.7'
+services:
+  db:
+    image: postgres:12.0-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=test
+      - POSTGRES_PASSWORD=test
+      - POSTGRES_DB=testdb
+  web:
+    container_name: categories_api
+    build: ./categories_api
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./categories_api/:/usr/src/categories_api/
+    ports:
+      - 8000:8000
+    env_file:
+      - ./.env.dev
+    depends_on:
+      - db
+volumes:
+  postgres_data:
