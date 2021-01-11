@@ -29,7 +29,7 @@ class Category(models.Model):
         related_name='children'
     )
 
-    def __str__(self):
+    def __str__(self) -> str:
         """Funtion for output info about this category object."""
         return self.name
 

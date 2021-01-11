@@ -3,6 +3,7 @@
 from rest_framework import serializers
 from .models import Category
 from django.forms.models import model_to_dict
+from typing import Dict
 
 
 class CategoriesCreateSerializer(serializers.ModelSerializer):
@@ -16,7 +17,7 @@ class CategoriesCreateSerializer(serializers.ModelSerializer):
         model = Category
         fields = ('name', 'children',)
 
-    def create(self, validated_data):
+    def create(self, validated_data: object) -> object:
         """
         Method for creating category objects in the database.
 
@@ -34,7 +35,8 @@ class CategoriesCreateSerializer(serializers.ModelSerializer):
 
         return category
 
-    def _recursive_creation_categories(self, parent, children):
+    def _recursive_creation_categories(
+            self, parent: object, children: object) -> None:
         """
         Recursive subcategory creation method.
 
@@ -53,7 +55,7 @@ class CategoriesCreateSerializer(serializers.ModelSerializer):
                     child.get('children')
                 )
 
-    def to_representation(self, instance):
+    def to_representation(self, instance: object) -> Dict[str, int]:
         """
         Method of displaying information after making a request.
 
@@ -65,7 +67,7 @@ class CategoriesCreateSerializer(serializers.ModelSerializer):
 class CategoriesSerializer(serializers.Serializer):
     """The class-serializer that is responsible for get requests."""
 
-    def to_representation(self, value):
+    def to_representation(self, value: object) -> dict:
         """
         The method that gives the answer to the get request.
 
@@ -85,7 +87,7 @@ class CategoriesSerializer(serializers.Serializer):
 
         return self._forming_json_response(model, parents, children, siblings)
 
-    def _search_parents(self, parent_obj):
+    def _search_parents(self, parent_obj: object) -> list:
         """
         A method that looks for parents and returns a general list.
 
@@ -96,7 +98,8 @@ class CategoriesSerializer(serializers.Serializer):
         self._recursive_parent_search(parent_obj, parent_list)
         return parent_list
 
-    def _recursive_parent_search(self, parent, parent_list):
+    def _recursive_parent_search(
+            self, parent: object, parent_list: list) -> None:
         """
         Recursive parent search in height.
 
@@ -109,7 +112,9 @@ class CategoriesSerializer(serializers.Serializer):
                 Category.objects.get(id=parent.parent.id), parent_list
             )
 
-    def _forming_json_response(self, model, parents, children, siblings):
+    def _forming_json_response(
+            self, model: object, parents: object,
+            children: object, siblings: object) -> dict:
         """
         A method that generates a response to a get request as JSON.
 

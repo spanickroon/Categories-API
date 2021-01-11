@@ -18,7 +18,7 @@ class CategoriesViewSet(viewsets.ReadOnlyModelViewSet):
 
     serializer_class = CategoriesSerializer
 
-    def get_queryset(self):
+    def get_queryset(self) -> object:
         """Method that overrides the standard method to get queryset."""
         category = Category.objects.all().filter(id=self.kwargs['pk'])
         return category
