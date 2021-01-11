@@ -1,9 +1,16 @@
-from django.db import models
+"""Module with categories models."""
 
-# Create your models here.
+from django.db import models
 
 
 class Category(models.Model):
+    """
+    Category model.
+
+    Has two fields: name -- CharField(255), parent -- FK.
+    The parent field is a key to an object of the same type.
+    Thanks to this, nesting of categories is implemented.
+    """
 
     name = models.CharField(
         max_length=255,
@@ -23,6 +30,7 @@ class Category(models.Model):
     )
 
     def __str__(self):
+        """Funtion for output info about this category object."""
         return self.name
 
     class Meta:
